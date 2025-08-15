@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎉 Birthday Website
 
-## Getting Started
+A beautiful, mobile-friendly birthday website built with Next.js and React. Features swipe navigation that works perfectly on iPhone and other mobile devices.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Swipe Navigation**: Swipe left/right to navigate between pages
+- **Mobile Optimized**: Perfect for iPhone and mobile devices
+- **Beautiful Animations**: Smooth transitions between pages
+- **Responsive Design**: Works on all screen sizes
+- **Touch Friendly**: Optimized for touch interactions
+
+## 🚀 Getting Started
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+
+3. **Open your browser:**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 🎨 Customization
+
+### Adding/Editing Pages
+
+Edit the `birthdayPages` array in `src/app/page.tsx`:
+
+```typescript
+const birthdayPages: BirthdayPage[] = [
+  {
+    id: 1,
+    title: "🎉 Happy Birthday! 🎉",
+    message: "Your custom message here...",
+    backgroundColor: "bg-gradient-to-br from-pink-400 to-purple-500"
+  },
+  // Add more pages...
+];
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Background Colors
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Use Tailwind CSS gradient classes:
+- `bg-gradient-to-br from-pink-400 to-purple-500` - Pink to Purple
+- `bg-gradient-to-br from-blue-400 to-cyan-500` - Blue to Cyan
+- `bg-gradient-to-br from-green-400 to-teal-500` - Green to Teal
+- `bg-gradient-to-br from-yellow-400 to-orange-500` - Yellow to Orange
+- `bg-gradient-to-br from-red-400 to-pink-500` - Red to Pink
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Adding Background Images
 
-## Learn More
+To add background images to pages:
 
-To learn more about Next.js, take a look at the following resources:
+1. Place your images in the `public/` folder
+2. Update the page object to include an image:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```typescript
+{
+  id: 1,
+  title: "🎉 Happy Birthday! 🎉",
+  message: "Your message...",
+  backgroundColor: "bg-gradient-to-br from-pink-400 to-purple-500",
+  backgroundImage: "/your-image.jpg" // Add this line
+}
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Update the page rendering to include the background image:
 
-## Deploy on Vercel
+```typescript
+<div
+  className={`absolute inset-0 ${page.backgroundColor} transition-all duration-700 ease-in-out ${
+    index === currentPage
+      ? 'opacity-100 scale-100'
+      : 'opacity-0 scale-95'
+  }`}
+  style={{
+    backgroundImage: page.backgroundImage ? `url(${page.backgroundImage})` : undefined,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat'
+  }}
+>
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📱 Mobile Features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Touch Gestures**: Swipe left/right to navigate
+- **No Zoom**: Prevents accidental zooming
+- **Full Screen**: Optimized for mobile viewing
+- **Smooth Animations**: 60fps transitions
+
+## 🛠️ Built With
+
+- [Next.js 14](https://nextjs.org/) - React Framework
+- [React](https://reactjs.org/) - UI Library
+- [TypeScript](https://www.typescriptlang.org/) - Type Safety
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [react-swipeable](https://github.com/FormidableLabs/react-swipeable) - Swipe Detection
+
+## 📱 Deployment
+
+### Vercel (Recommended)
+1. Push your code to GitHub
+2. Connect your repository to [Vercel](https://vercel.com)
+3. Deploy automatically
+
+### Other Platforms
+- **Netlify**: Works great with Next.js
+- **AWS Amplify**: Good for AWS users
+- **GitHub Pages**: Requires static export
+
+## 🎯 Future Enhancements
+
+- [ ] Background music
+- [ ] Confetti animations
+- [ ] Photo galleries
+- [ ] Custom themes
+- [ ] Birthday countdown
+- [ ] Social sharing
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+**Happy Birthday! 🎂✨**
