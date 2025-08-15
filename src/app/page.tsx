@@ -366,26 +366,29 @@ export default function BirthdayWebsite() {
                   />
                 </div>
               ))}
-                              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <div 
-                    className="text-center px-8 relative z-10" 
+                    className="text-center px-4 sm:px-8 relative z-10" 
                     style={{ 
-                      transform: index === 0 ? 'translate(85%, 180%)' :
-                               index === 1 ? 'translate(85%, 40%)' :
-                               index === 2 ? 'translate(95%, 25%)' :
-                               index === 3 ? 'translate(70%, 120%)' :
-                               'translate(95%, 150%)'
+                      position: 'absolute',
+                      left: index === 0 ? '50%' : 
+                             index === 1 ? '50%' : 
+                             index === 2 ? '50%' : 
+                             index === 3 ? '50%' : '50%',
+                      top: index === 0 ? '50%' : 
+                           index === 1 ? '45%' : 
+                           index === 2 ? '40%' : 
+                           index === 3 ? '50%' : '45%',
+                      transform: 'translate(-50%, -50%)'
                     }}
                   >
-                    <h1 className="text-4xl md:text-6xl font-bold text-white mb-8 drop-shadow-lg">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 md:mb-8 drop-shadow-lg font-sans">
                       {page.title}
                     </h1>
                     <p 
-                      className="text-xl md:text-2xl text-white/90 max-w-2xl leading-relaxed drop-shadow-md"
+                      className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-xs sm:max-w-sm md:max-w-2xl leading-relaxed drop-shadow-md font-sans"
                       dangerouslySetInnerHTML={{ __html: page.message }}
                     />
                   </div>
-                </div>
             </div>
           ))}
         </div>
